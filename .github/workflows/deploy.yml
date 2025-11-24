@@ -22,13 +22,10 @@ jobs:
           node-version: '18'
       
       - name: Install pnpm
-        run: |
-          npm install -g pnpm@8
-          which pnpm
-          pnpm --version
+        run: npm install -g pnpm@8
       
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install  # ← SIN --frozen-lockfile
       
       - name: Build
         run: pnpm build
