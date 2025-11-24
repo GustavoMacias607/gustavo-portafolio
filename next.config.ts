@@ -8,7 +8,6 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  // Solo en producción
   ...(isProduction && {
     basePath: `/${repoName}`,
     assetPrefix: `/${repoName}/`,
