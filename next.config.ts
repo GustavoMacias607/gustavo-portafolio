@@ -1,7 +1,18 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const isProduction = process.env.NODE_ENV === 'production'
+const repoName = 'gustavo-portafolio'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true
+  },
+  // Solo en producción
+  ...(isProduction && {
+    basePath: `/${repoName}`,
+    assetPrefix: `/${repoName}/`,
+  })
+}
 
-export default nextConfig;
+module.exports = nextConfig
